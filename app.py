@@ -25,7 +25,6 @@ if auth_status:
     
     authenticator.logout('Logout', 'main')
 
-    st.title("📈 Time Series Anomaly Detection with SHAP")
     st.write(f"Welcome *{name}* 👋")
     logger.info(f"User {username} logged in successfully")
 
