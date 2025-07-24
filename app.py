@@ -84,11 +84,14 @@ if auth_status:
                 "Probability": round(p, 4),
                 "Cumulative Probability": round(cumulative_probability, 4)
             })
-            if cumulative_probability >= probability_threshold or p < 1e-8:
-                break
-            x += 1
 
-        min_spares = x
+            # 🛑 Stop if target confidence met
+            if cumulative_probability >= probability_threshold or p < 1e-8:
+                min_spares = x  # ✅ Assign here while x is valid
+                break
+
+            x += 1
+        
         total_cost = min_spares * spare_part_cost
 
         # === Summary Block ===
